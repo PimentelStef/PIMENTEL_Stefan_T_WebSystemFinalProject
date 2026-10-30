@@ -1,0 +1,38 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build output
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+appsettings.*.local.json
+secrets.json
+
+# Logs
+*.log
+
+# Database backups and local database files
+*.bak
+*.mdf
+*.ldf
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini

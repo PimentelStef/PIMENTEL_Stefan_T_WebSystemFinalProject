@@ -1,0 +1,716 @@
+{
+  "info": {
+    "_postman_id": "c624c5f0-f98e-400d-81b3-bf8a44e946a3",
+    "name": "Student Grade Management System API Tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57456955",
+    "_collection_link": "https://go.postman.co/collection/57456955-c624c5f0-f98e-400d-81b3-bf8a44e946a3?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Faculty - Get All Grades",
+      "protocolProfileBehavior": {
+        "disableCookies": false,
+        "followRedirects": true,
+        "protocolVersion": "auto",
+        "strictSSL": false
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0v9m}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"faculty.demo@example.com\",\r\n  \"password\": \"{{faculty_demo_password}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5200/api/grades",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5200",
+          "path": [
+            "api",
+            "grades"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Faculty - POST Create Grade",
+      "protocolProfileBehavior": {
+        "disableCookies": false,
+        "followRedirects": true,
+        "protocolVersion": "auto",
+        "strictSSL": false
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0v9m}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"studentId\": 1,\r\n  \"subjectCode\": \"POSTTEST101\",\r\n  \"subjectName\": \"Postman Test Subject\",\r\n  \"grade\": 92,\r\n  \"semester\": \"1st Semester\",\r\n  \"schoolYear\": \"2026-2027\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5200/api/grades",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5200",
+          "path": [
+            "api",
+            "grades"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Faculty - PUT Update Grade",
+      "protocolProfileBehavior": {
+        "disableCookies": false,
+        "followRedirects": true,
+        "protocolVersion": "auto",
+        "strictSSL": false
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0v9m}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"studentId\": 1,\r\n  \"subjectCode\": \"POSTTEST101\",\r\n  \"subjectName\": \"Postman Test Subject\",\r\n  \"grade\": 78,\r\n  \"semester\": \"1st Semester\",\r\n  \"schoolYear\": \"2026-2027\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5200/api/grades/14",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5200",
+          "path": [
+            "api",
+            "grades",
+            "14"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Faculty - DELETE Grade",
+      "protocolProfileBehavior": {
+        "disableCookies": false,
+        "followRedirects": true,
+        "protocolVersion": "auto",
+        "strictSSL": false
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0v9m}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5200/api/grades/14",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5200",
+          "path": [
+            "api",
+            "grades",
+            "14"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Validation - Grade Above 100",
+      "protocolProfileBehavior": {
+        "disableCookies": false,
+        "followRedirects": true,
+        "protocolVersion": "auto",
+        "strictSSL": false
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0v9m}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"studentId\": 1,\r\n  \"subjectCode\": \"INVALID105\",\r\n  \"subjectName\": \"Validation Test\",\r\n  \"grade\": 105,\r\n  \"semester\": \"1st Semester\",\r\n  \"schoolYear\": \"2026-2027\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5200/api/grades",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5200",
+          "path": [
+            "api",
+            "grades"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Validation - Negative Grade",
+      "protocolProfileBehavior": {
+        "disableCookies": false,
+        "followRedirects": true,
+        "protocolVersion": "auto",
+        "strictSSL": false
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0v9m}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"studentId\": 1,\r\n  \"subjectCode\": \"INVALIDNEG1\",\r\n  \"subjectName\": \"Validation Test\",\r\n  \"grade\": -1,\r\n  \"semester\": \"1st Semester\",\r\n  \"schoolYear\": \"2026-2027\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5200/api/grades",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5200",
+          "path": [
+            "api",
+            "grades"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Validation - Decimal Grade",
+      "protocolProfileBehavior": {
+        "disableCookies": false,
+        "followRedirects": true,
+        "protocolVersion": "auto",
+        "strictSSL": false
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0v9m}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"studentId\": 1,\r\n  \"subjectCode\": \"INVALIDDECIMAL\",\r\n  \"subjectName\": \"Validation Test\",\r\n  \"grade\": 85.5,\r\n  \"semester\": \"1st Semester\",\r\n  \"schoolYear\": \"2026-2027\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5200/api/grades",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5200",
+          "path": [
+            "api",
+            "grades"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Validation - Server-Computed Remarks",
+      "protocolProfileBehavior": {
+        "disableCookies": false,
+        "followRedirects": true,
+        "protocolVersion": "auto",
+        "strictSSL": false
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0v9m}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"studentId\": 1,\r\n  \"subjectCode\": \"TAMPERTEST101\",\r\n  \"subjectName\": \"Remarks Security Test\",\r\n  \"grade\": 96,\r\n  \"remarks\": \"BEP/FAILED\",\r\n  \"semester\": \"1st Semester\",\r\n  \"schoolYear\": \"2026-2027\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5200/api/grades",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5200",
+          "path": [
+            "api",
+            "grades"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Student - GET My Grades",
+      "protocolProfileBehavior": {
+        "disableCookies": false,
+        "followRedirects": true,
+        "protocolVersion": "auto",
+        "strictSSL": false
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0rac}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"juan.delacruz@example.com\",\r\n  \"password\": \"{{student_demo_password}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5200/api/grades/my-grades",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5200",
+          "path": [
+            "api",
+            "grades",
+            "my-grades"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Student - GET Another Student's Grade",
+      "protocolProfileBehavior": {
+        "disableCookies": false,
+        "followRedirects": true,
+        "protocolVersion": "auto",
+        "strictSSL": false
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0rac}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"juan.delacruz@example.com\",\r\n  \"password\": \"{{student_demo_password}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5200/api/grades/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5200",
+          "path": [
+            "api",
+            "grades",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Student - POST Grade - Forbidden",
+      "protocolProfileBehavior": {
+        "disableCookies": false,
+        "followRedirects": true,
+        "protocolVersion": "auto",
+        "strictSSL": false
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0rac}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"studentId\": 1,\r\n  \"subjectCode\": \"STUDENTWRITE01\",\r\n  \"subjectName\": \"Unauthorized Test\",\r\n  \"grade\": 90,\r\n  \"semester\": \"1st Semester\",\r\n  \"schoolYear\": \"2026-2027\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5200/api/grades",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5200",
+          "path": [
+            "api",
+            "grades"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Student - PUT Grade - Forbidden",
+      "protocolProfileBehavior": {
+        "disableCookies": false,
+        "followRedirects": true,
+        "protocolVersion": "auto",
+        "strictSSL": false
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0rac}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"studentId\": 1,\r\n  \"subjectCode\": \"STUDENTWRITE01\",\r\n  \"subjectName\": \"Unauthorized Update Test\",\r\n  \"grade\": 99,\r\n  \"semester\": \"1st Semester\",\r\n  \"schoolYear\": \"2026-2027\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5200/api/grades/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5200",
+          "path": [
+            "api",
+            "grades",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Student - DELETE Grade - Forbidden",
+      "protocolProfileBehavior": {
+        "disableCookies": false,
+        "followRedirects": true,
+        "protocolVersion": "auto",
+        "strictSSL": false
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0rac}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5200/api/grades/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5200",
+          "path": [
+            "api",
+            "grades",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Authentication - GET All Grades - No Auth",
+      "protocolProfileBehavior": {
+        "disableCookies": false,
+        "followRedirects": true,
+        "maxResponseSize": 52428800,
+        "protocolVersion": "auto",
+        "strictSSL": false
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5200/api/grades",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5200",
+          "path": [
+            "api",
+            "grades"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Faculty Login",
+      "protocolProfileBehavior": {
+        "disableCookies": false,
+        "followRedirects": true,
+        "maxResponseSize": 52428800,
+        "protocolVersion": "auto",
+        "strictSSL": false
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"faculty.demo@example.com\",\r\n  \"password\": \"{{faculty_demo_password}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5200/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5200",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Student Login",
+      "protocolProfileBehavior": {
+        "disableCookies": false,
+        "followRedirects": true,
+        "maxResponseSize": 52428800,
+        "protocolVersion": "auto",
+        "strictSSL": false
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"juan.delacruz@example.com\",\r\n  \"password\": \"{{student_demo_password}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5200/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5200",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "json_web_token_0w38",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0uaz",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0hzl",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0v9m",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0rac",
+      "secret": true
+    }
+  ]
+}
